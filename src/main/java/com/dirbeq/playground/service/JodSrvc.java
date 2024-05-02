@@ -24,7 +24,7 @@ public class JodSrvc {
         return file;
     }
 
-    public void convertToPDF(MultipartFile multipartFile) {
+    public File convertToPDF(MultipartFile multipartFile) {
         try {
             String fileName = TMP_FILES_DIRECTORY + multipartFile.getOriginalFilename() + ".pdf";
 
@@ -37,6 +37,8 @@ public class JodSrvc {
 
                 DocumentConverter converter = LocalConverter.builder().officeManager(officeManager).build();
                 converter.convert(inputFile).to(outputFile).execute();
+
+                return outputFile;
             } catch (OfficeException e) {
                 e.printStackTrace();
             } finally {
@@ -49,5 +51,6 @@ public class JodSrvc {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        return null;
     }
 }
