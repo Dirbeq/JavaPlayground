@@ -28,7 +28,7 @@ public class JodCtrl {
     public ResponseEntity<Resource> testwordtopdfconvert(
             @RequestPart MultipartFile file
     ) throws IOException {
-        File pdfFile = jodSrvc.convertToPDF(file); // Assuming convertToPDF now returns the converted File
+        File pdfFile = jodSrvc.convertToPDF(file);
         HttpHeaders headers = new HttpHeaders();
         headers.add(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=" + pdfFile.getName());
         InputStreamResource resource = new InputStreamResource(new FileInputStream(pdfFile));
