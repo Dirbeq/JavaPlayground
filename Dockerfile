@@ -8,4 +8,4 @@ RUN mkdir -p /tmp/files
 ARG JAR_FILE=target/playground-0.0.1.jar
 ADD ${JAR_FILE} playground.jar
 
-ENTRYPOINT ["java","-jar","/playground.jar"]]
+ENTRYPOINT ["java","-jar","/playground.jar"]
