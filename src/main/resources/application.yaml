@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: spring-metrics
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: prometheus
